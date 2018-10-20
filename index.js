@@ -19,10 +19,12 @@ gplay = Gplay(creds)
 const targetPlayList = 'vibe'
 
 ;(async function () {
+  let list
+  let trackIds
+
   try {
     await gplay.init(creds)
-    const list = await gplay.findPlayList(targetPlayList)
-    let tracks
+    list = await gplay.findPlayList(targetPlayList)
 
     if (!list) {
       throw Error(`Couldn't find a playlist names "${targetPlayList}"`)
@@ -30,9 +32,8 @@ const targetPlayList = 'vibe'
 
     console.log(`Found playlist: "${list.name}"`)
 
-    tracks = await gplay.getPlayListTracks(list.id)
-    console.log(`Founrd ${tracks.length} tracks in playlist "${list.name}"`)
-    console.log(tracks)
+    const allTracks = await gplay.getAllTracks(list.id)
+    console.log(allTracks.length)
   } catch (err) {
     console.error(err)
     process.exit(1)
