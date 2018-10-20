@@ -1,0 +1,16 @@
+{
+  "name": "playlist-migrate",
+  "version": "1.0.0",
+  "description": "Migrate google play playlist to spotify",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "author": "Johnny Ray Austin",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "good-env": "^3.0.0",
+    "playmusic": "^2.3.0"
+  }
+}
